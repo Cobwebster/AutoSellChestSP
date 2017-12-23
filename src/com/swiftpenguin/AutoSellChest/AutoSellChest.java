@@ -28,7 +28,6 @@ public class AutoSellChest extends JavaPlugin implements Listener {
         registerConfig();
 
         if (getConfig().getInt("Version") == 1) {
-
             int ver = getConfig().getInt("Version") + 1;
             getConfig().addDefault("Language.mainCallout", "<AutoSell>");
             getConfig().options().copyDefaults(true);
@@ -62,7 +61,6 @@ public class AutoSellChest extends JavaPlugin implements Listener {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 0) {
-
             return true;
 
         } else if (args[0].equalsIgnoreCase("reload") && sender.hasPermission("acs.reload")) {
@@ -70,8 +68,7 @@ public class AutoSellChest extends JavaPlugin implements Listener {
             reloadConfig();
             sender.sendMessage(ChatColor.YELLOW + "[AutoSell] Version: " +getDescription().getVersion()+ " Reloaded...");
 
-            if (getServer().getVersion().contains("1.8")) {
-            } else {
+            if (!getServer().getVersion().contains("1.8")) {
                 ((Player) sender).playSound(((Player) sender).getLocation(), Sound.BLOCK_ANVIL_USE, 10, 1);
                 return true;
             }
@@ -81,9 +78,9 @@ public class AutoSellChest extends JavaPlugin implements Listener {
 
     @EventHandler
     public void transfer(InventoryMoveItemEvent e) {
+        //Bukkit.getServer().broadcastMessage("Type: " + e.getItem().getType());
 
         if (e.getInitiator().getType().equals(InventoryType.HOPPER) && e.getDestination().getType().equals(InventoryType.CHEST)) { //Hopper -> Chest Check
-
             String transfer = e.getItem().getType().toString().toUpperCase();
 
             if (getConfig().getConfigurationSection("ItemPrices").getKeys(false).contains(e.getItem().getType().toString().toUpperCase())){ // Item Config Check
@@ -101,7 +98,6 @@ public class AutoSellChest extends JavaPlugin implements Listener {
                         if (player == null) {
                             return;
                         }
-                        //Bukkit.getServer().broadcastMessage("Type: " + e.getItem().getType());
                         double charge = getConfig().getDouble("ItemPrices." + transfer + ".price"); // Grabbing itemPrice
                         double multiply = charge * e.getItem().getAmount();
 

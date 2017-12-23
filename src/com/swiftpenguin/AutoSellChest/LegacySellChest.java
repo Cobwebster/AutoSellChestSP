@@ -19,11 +19,13 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 public class LegacySellChest {
 
     private AutoSellChest plugin;
-
     public LegacySellChest(AutoSellChest plugin) {
         this.plugin = plugin;
 
     }
+
+    //PlaceHolder
+
 
 }
    /* private boolean setupEconomy() {

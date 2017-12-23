@@ -14,7 +14,6 @@ import org.bukkit.event.inventory.InventoryType;
 public class AntiDupe implements Listener {
 
     private AutoSellChest plugin;
-
     public AntiDupe(AutoSellChest plugin) {
         this.plugin = plugin;
     }
@@ -23,16 +22,13 @@ public class AntiDupe implements Listener {
     public void blocker (InventoryMoveItemEvent e){
 
         if (e.getDestination().getType().equals(InventoryType.HOPPER) && e.getInitiator().getType().equals(InventoryType.HOPPER)) {
-
             if (e.getDestination().getLocation().getBlock().getRelative(BlockFace.UP).getType().equals(Material.CHEST)){
 
                 BlockState state = e.getDestination().getLocation().getBlock().getRelative(BlockFace.UP).getState();
                 Chest chest = (Chest) state;
 
                 if (chest.getInventory().getTitle().equals("AutoSeller")){
-
                     e.setCancelled(true);
-
                     Location loc = e.getDestination().getLocation();
                     loc.getBlock().setType(Material.AIR);
 
