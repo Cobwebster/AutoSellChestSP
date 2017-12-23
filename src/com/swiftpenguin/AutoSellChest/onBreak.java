@@ -31,7 +31,6 @@ public class onBreak implements Listener {
                 Sign sign = (Sign) above.getLocation().getBlock().getState();
                 String mainCallout = plugin.getConfig().getString("Language.mainCallout");
 
-                //if (sign.getLine(0).length() > 0 && sign.getLine(0).equalsIgnoreCase(ChatColor.LIGHT_PURPLE + "<AutoSell>")) {
                 if (sign.getLine(0).length() > 0 && sign.getLine(0).equalsIgnoreCase(ChatColor.LIGHT_PURPLE + mainCallout)) {
 
                     String signName = sign.getLine(1);

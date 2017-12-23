@@ -87,25 +87,21 @@ public class AutoSellChest extends JavaPlugin implements Listener {
             String transfer = e.getItem().getType().toString().toUpperCase();
 
             if (getConfig().getConfigurationSection("ItemPrices").getKeys(false).contains(e.getItem().getType().toString().toUpperCase())){ // Item Config Check
-
                 org.bukkit.block.Block above = e.getDestination().getLocation().getBlock().getRelative(BlockFace.UP); // Sign Grab
 
             if (above.getState() instanceof Sign) { //Sign Check
                 Sign sign = (Sign) above.getLocation().getBlock().getState();
                 String mainCallout = getConfig().getString("Language.mainCallout");
-
                 if (sign.getLine(0).length() > 0 && sign.getLine(0).equalsIgnoreCase(ChatColor.LIGHT_PURPLE + mainCallout)) { //Checking main Callout
 
                     if (sign.getLine(1).length() > 0) {
                         String pName = sign.getLine(1);
                         Player p = Bukkit.getServer().getPlayer(pName);
-
                         OfflinePlayer player = Bukkit.getOfflinePlayer(sign.getLine(1)); //Grabbing offlinePlayer
                         if (player == null) {
                             return;
                         }
                         //Bukkit.getServer().broadcastMessage("Type: " + e.getItem().getType());
-
                         double charge = getConfig().getDouble("ItemPrices." + transfer + ".price"); // Grabbing itemPrice
                         double multiply = charge * e.getItem().getAmount();
 
@@ -117,7 +113,6 @@ public class AutoSellChest extends JavaPlugin implements Listener {
                                             int newTotal = mode1 + 1;
                                             sign.setLine(3, Integer.toString(newTotal));
                                             sign.update();
-
                                         } else {
                                             double mode2 = Double.parseDouble(sign.getLine(3));
                                             double newTotal = mode2 + multiply;
@@ -125,7 +120,6 @@ public class AutoSellChest extends JavaPlugin implements Listener {
                                             sign.setLine(3, Double.toString(newTotal));
                                             sign.update();
                                         }
-
                                 Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable() {
                                     public void run() {
                                         e.getDestination().clear();
@@ -139,14 +133,3 @@ public class AutoSellChest extends JavaPlugin implements Listener {
             }
         }
     }
-/*
-
-                 Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable() {
-                                    public void run() {
-
-                                        Bukkit.getServer().broadcastMessage("paid");
-
-                                    }
-                                }, 10);
-
- */
