@@ -1,6 +1,6 @@
 main: com.swiftpenguin.AutoSellChest.AutoSellChest
 name: AutoSellChestSP
-version: 2.1
+version: 2.2
 author: Cobwebster
 
 commands:

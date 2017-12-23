@@ -26,7 +26,7 @@ public class SignCreation implements Listener {
             e.getPlayer().sendMessage(ChatColor.RED + "You lack the permissions to create a AutoSell chest...");
 
         } else {
-            
+
         if (e.getBlock().getState() instanceof Sign) {
             String mainCallout = plugin.getConfig().getString("Language.mainCallout");
             if (e.getLine(0).equalsIgnoreCase(mainCallout)) {
