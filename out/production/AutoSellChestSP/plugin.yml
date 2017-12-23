@@ -1,0 +1,20 @@
+main: com.swiftpenguin.AutoSellChest.AutoSellChest
+name: AutoSellChestSP
+version: 2.1
+author: Cobwebster
+
+commands:
+  acs:
+     description: Reload AutoSellChest
+     usuage: /<command>
+
+permissions:
+    acs.reload:
+        description: allows reload
+        default: op
+    acs.break:
+        description: allows reload
+        default: op
+    acs.use:
+        description: allows usage
+        default: op

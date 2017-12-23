@@ -1,0 +1,34 @@
+# AutoSellChest made by Cobwebster
+# Consider leaving a review if you enjoy this plugin
+# To add new items just add in new items under ItemPrices, just make sure
+# the item is capped and has the correct name.
+# List Here https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+# Modes Explained
+# Mode 1 = Last Line of SellerSign will = the amount of items sold (counter)
+# Mode 2 = Last Line of SellerSign will = the total amount of money made (counter)
+# Do not touch version number
+Version: 2
+Settings:
+  mode: 2
+  SoundOnCreation: true
+Language:
+  mainCallout: "<AutoSell>"
+  statusEnabled: "{WORKING}"
+  sellerDestroy: "&d[AutoChestSeller] has been Disabled..."
+  sellerCreate: "&2[AutoChestSeller] You have created a auto selling chest! All contents inside the chest will get deleted."
+  createFailedSign: "&c[AutoChestSeller] You must place this on top of a chest!"
+  missingPerms: "&c[AutoChestSeller] You lack the perms to do this!"
+  denyBreak: "[AutoChestSeller] You are not allowed to break %p%'s auto seller!"
+ItemPrices:
+  BONE:
+    price: 0.50
+  STRING:
+    price: 1.00
+  ROTTEN_FLESH:
+    price: 2.00
+  ARROW:
+    price: 2.00
+  IRON_INGOT:
+    price: 3.00
+  SULPHUR:
+    price: 1.50
