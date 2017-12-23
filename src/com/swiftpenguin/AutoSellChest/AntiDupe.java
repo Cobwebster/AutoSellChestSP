@@ -17,8 +17,9 @@ public class AntiDupe implements Listener {
 
     public AntiDupe(AutoSellChest plugin) {
         this.plugin = plugin;
-
     }
+
+    //kraken test
 
     @EventHandler
     public void blocker (InventoryMoveItemEvent e){
