@@ -1,2 +1,2 @@
 # AutoSellChestSP
-AutoSellerChest a SpigotMC plugin.
+AutoSellerChest, a SpigotMC plugin.
